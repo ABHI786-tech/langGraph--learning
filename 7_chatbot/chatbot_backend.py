@@ -17,6 +17,9 @@ load_dotenv()
 
 
 llm = HuggingFaceEndpoint(
+
+
+    
     repo_id= "deepseek-ai/DeepSeek-V4-Flash",
     task="text-generation",
     huggingfacehub_api_token = os.getenv("HUGGINGFACEHUB_API_TOKEN")
@@ -50,3 +53,15 @@ graph.add_edge(START, 'chat_node')
 graph.add_edge('chat_node', END)
 chatbot = graph.compile(checkpointer=checkpointer)
 
+
+
+# add streaming 
+ 
+# for message_chunk, metadata in  chatbot.stream(
+#     {'messages': [HumanMessage(content="make a notes in the langchain")]},
+#       config={'configurable': {'thread_id': 'thread_1'}},
+#       stream_mode='messages',
+# ):
+
+#    if message_chunk.content:
+#          print(message_chunk.content, end=" ", flush=True)
