@@ -1,6 +1,5 @@
 from dotenv import load_dotenv
 
-# Load .env FIRST so LangSmith variables are set before anything else imports
 load_dotenv()
 
 import uuid
@@ -8,7 +7,9 @@ import uuid
 import streamlit as st
 from langchain_core.messages import AIMessage, HumanMessage
 
-from backend import chatbot
+# from backend import chatbot
+from tool_backend import chatbot
+
 
 st.set_page_config(page_title="Chatbot", page_icon="💬")
 
